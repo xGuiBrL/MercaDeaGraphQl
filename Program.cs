@@ -75,6 +75,7 @@ builder.Services
     .AddAuthorization()
     .AddFiltering()
     .AddSorting()
+    .AddProjections()
     .ModifyRequestOptions(o => o.IncludeExceptionDetails = true);
 
 builder.Services.AddControllers();
