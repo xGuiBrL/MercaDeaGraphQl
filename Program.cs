@@ -1,4 +1,5 @@
 using MercaDeaGraphQl.GraphQL;
+using MercaDeaGraphQl.GraphQL.Types;
 using MercaDeaGraphQl.Models.Data;
 using MercaDeaGraphQl.Models.Security;
 using MercaDeaGraphQl.Services;
@@ -69,6 +70,7 @@ builder.Services
     .AddGraphQLServer()
     .AddQueryType<Query>()
     .AddMutationType<Mutation>()
+    .AddType<ProductorType>()
     .AddUploadType()
     .AddAuthorization()
     .AddFiltering()
