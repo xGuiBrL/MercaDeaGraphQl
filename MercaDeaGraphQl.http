@@ -1,0 +1,6 @@
+@MercaDeaGraphQl_HostAddress = http://localhost:5253
+
+GET {{MercaDeaGraphQl_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

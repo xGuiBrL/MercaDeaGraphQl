@@ -1,0 +1,28 @@
+[
+  {
+    "ContainingType": "MercaDeaGraphQl.Controllers.ImagenesController",
+    "Method": "ObtenerImagenes",
+    "RelativePath": "api/Imagenes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MercaDeaGraphQl.Controllers.ImagenesController",
+    "Method": "AgregarImagenes",
+    "RelativePath": "api/Imagenes/agregar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "archivos",
+        "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
