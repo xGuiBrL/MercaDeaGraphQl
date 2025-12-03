@@ -25,4 +25,4 @@ WORKDIR /app
 COPY --from=build /app/publish .
 
 # IMPORTANTE: Cambia TU_PROYECTO.dll por el nombre real
-ENTRYPOINT ["dotnet", "MERCADEAFRAPHQL.dll"]
+ENTRYPOINT ["dotnet", "MercaDeaGraphQl.dll"]
