@@ -11,6 +11,20 @@ namespace MercaDeaGraphQl.GraphQL
     public class Query
     {
         [Authorize]
+        public async Task<Usuario> GetCurrentUser(ClaimsPrincipal user, [Service] MongoDbContext db)
+        {
+            var userId = user.FindFirst("id")?.Value;
+            if (userId == null)
+                throw new Exception("Token inválido");
+
+            var usuario = await db.Usuarios.Find(u => u.Id == userId).FirstOrDefaultAsync();
+            if (usuario == null)
+                throw new Exception("Usuario no encontrado");
+
+            return usuario;
+        }
+
+        [Authorize]
         [UseFiltering]
         public IQueryable<Usuario> GetUsuarios([Service] MongoDbContext db) => db.Usuarios.AsQueryable();
 
