@@ -76,14 +76,8 @@ builder.Services
     .ModifyRequestOptions(o => o.IncludeExceptionDetails = true);
 
 builder.Services.AddControllers();
-builder.Services.AddOpenApi();
 
 var app = builder.Build();
-
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-}
 
 app.UseStaticFiles();
 app.UseRouting();
