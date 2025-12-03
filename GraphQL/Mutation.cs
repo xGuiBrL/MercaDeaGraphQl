@@ -1279,8 +1279,7 @@ namespace MercaDeaGraphQl.GraphQL
                 IdUsuario = usuarioId,
                 NombreUsuario = nombreUsuario,
                 Direccion = direccion,
-                Nit = nit,
-                Telefono = telefono
+                Nit = nit
             };
 
             await db.Productores.InsertOneAsync(nuevoProductor);
