@@ -15,6 +15,10 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// ⭐ Render usa un puerto dinámico – configurar el puerto aquí
+var port = Environment.GetEnvironmentVariable("PORT") ?? "10000";
+builder.WebHost.UseUrls($"http://*:{port}");
+
 // MongoDB
 builder.Services.Configure<MongoDbSettings>(
     builder.Configuration.GetSection("DatabaseSettings"));
@@ -84,13 +88,13 @@ if (app.Environment.IsDevelopment())
 app.UseStaticFiles();
 app.UseRouting();
 
-// ⭐ APLICAR CORS AQUÍ — ANTES DE AUTH Y ANTES DE GRAPHQL
+// ⭐ APLICAR CORS AQUÍ — ANTES DE AUTH Y GRAPHQL
 app.UseCors("AllowAll");
 
 app.UseAuthentication();
 app.UseAuthorization();
 
-// ⭐ SOLO UNA VEZ — NO DUPLICAR ESTO
+// ⭐ SOLO UNA VEZ
 app.MapGraphQL("/graphql");
 app.MapControllers();
 
