@@ -94,3 +94,9 @@ C:\Users\porta\OneDrive\Documentos\Univalle\MercaDEA\MercaDeaGraphQl\obj\Debug\n
 C:\Users\porta\OneDrive\Documentos\Univalle\MercaDEA\MercaDeaGraphQl\obj\Debug\net8.0\MercaDeaGraphQl.pdb
 C:\Users\porta\OneDrive\Documentos\Univalle\MercaDEA\MercaDeaGraphQl\obj\Debug\net8.0\MercaDeaGraphQl.genruntimeconfig.cache
 C:\Users\porta\OneDrive\Documentos\Univalle\MercaDEA\MercaDeaGraphQl\obj\Debug\net8.0\ref\MercaDeaGraphQl.dll
+C:\Users\porta\OneDrive\Documentos\Univalle\MercaDEA\MercaDeaGraphQl\bin\Debug\net8.0\backup\MercaDeaDB\Comprobador.metadata.json
+C:\Users\porta\OneDrive\Documentos\Univalle\MercaDEA\MercaDeaGraphQl\bin\Debug\net8.0\backup\MercaDeaDB\prelude.json
+C:\Users\porta\OneDrive\Documentos\Univalle\MercaDEA\MercaDeaGraphQl\bin\Debug\net8.0\backup\MercaDeaDB\Productores.metadata.json
+C:\Users\porta\OneDrive\Documentos\Univalle\MercaDEA\MercaDeaGraphQl\bin\Debug\net8.0\backup\MercaDeaDB\Productos.metadata.json
+C:\Users\porta\OneDrive\Documentos\Univalle\MercaDEA\MercaDeaGraphQl\bin\Debug\net8.0\backup\MercaDeaDB\Usuarios.metadata.json
+C:\Users\porta\OneDrive\Documentos\Univalle\MercaDEA\MercaDeaGraphQl\bin\Debug\net8.0\backup\MercaDeaDB\Ventas.metadata.json

@@ -1246,6 +1246,15 @@ namespace MercaDeaGraphQl.GraphQL
         }
 
         [Authorize(Roles = new[] { "admin" })]
+        public async Task<bool> EliminarProductorAdmin(
+            [Service] MongoDbContext db,
+            string productorId)
+        {
+            var result = await db.Productores.DeleteOneAsync(p => p.Id == productorId);
+            return result.DeletedCount == 1;
+        }
+
+        [Authorize(Roles = new[] { "admin" })]
         public async Task<Usuario> EditarUsuarioAdmin(
             [Service] MongoDbContext db,
             string usuarioId,
