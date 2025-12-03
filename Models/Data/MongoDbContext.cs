@@ -9,7 +9,18 @@ namespace MercaDeaGraphQl.Models.Data
 
         public MongoDbContext(IOptions<MongoDbSettings> settings)
         {
-            var client = new MongoClient(settings.Value.ConnectionString);
+            // 1. Intentar leer variable de entorno
+            var envConnection = Environment.GetEnvironmentVariable("MONGODB_URI");
+
+            // 2. Si existe, usarla
+            var connectionString = !string.IsNullOrEmpty(envConnection)
+                ? envConnection
+                : settings.Value.ConnectionString; // fallback local
+
+            // 3. Crear cliente de Mongo
+            var client = new MongoClient(connectionString);
+
+            // 4. Obtener el nombre de la BD desde settings
             _db = client.GetDatabase(settings.Value.DatabaseName);
         }
 
@@ -18,6 +29,5 @@ namespace MercaDeaGraphQl.Models.Data
         public IMongoCollection<Producto> Productos => _db.GetCollection<Producto>("Productos");
         public IMongoCollection<Venta> Ventas => _db.GetCollection<Venta>("Ventas");
         public IMongoCollection<Comprobador> Comprobadores => _db.GetCollection<Comprobador>("Comprobador");
-        
     }
 }
