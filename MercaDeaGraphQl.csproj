@@ -1,25 +1,27 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="HotChocolate.AspNetCore.Authorization" Version="13.7.0" />
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.9" />
-	  <PackageReference Include="MongoDB.Driver" Version="2.25.0" />
-	  <PackageReference Include="HotChocolate.AspNetCore" Version="15.1.11" />
-	  <PackageReference Include="HotChocolate.Data" Version="15.1.11" />
-	  <PackageReference Include="HotChocolate.Types" Version="15.1.11" />
-	  <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.0" />
-	  <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.15.0" />
-	  <PackageReference Include="HotChocolate.AspNetCore.Authorization" Version="15.1.11" />
-	  
+    <!-- HotChocolate GraphQL (versión estable compatible con .NET 8) -->
+    <PackageReference Include="HotChocolate.AspNetCore" Version="15.1.11" />
+    <PackageReference Include="HotChocolate.Data" Version="15.1.11" />
+    <PackageReference Include="HotChocolate.Types" Version="15.1.11" />
+    <PackageReference Include="HotChocolate.AspNetCore.Authorization" Version="15.1.11" />
 
+    <!-- MongoDB -->
+    <PackageReference Include="MongoDB.Driver" Version="2.25.0" />
 
+    <!-- OpenAPI / Swagger compatible con .NET 8 -->
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.8" />
 
+    <!-- JWT (para .NET 8) -->
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.8" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.1.2" />
   </ItemGroup>
 
   <ItemGroup>
