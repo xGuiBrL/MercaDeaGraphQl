@@ -1255,6 +1255,39 @@ namespace MercaDeaGraphQl.GraphQL
         }
 
         [Authorize(Roles = new[] { "admin" })]
+        public async Task<Productor> CrearProductorAdmin(
+            [Service] MongoDbContext db,
+            string usuarioId,
+            string nombreUsuario,
+            string direccion,
+            string nit,
+            string telefono)
+        {
+            // Verificar que el usuario exista
+            var usuario = await db.Usuarios.Find(u => u.Id == usuarioId).FirstOrDefaultAsync();
+            if (usuario == null)
+                throw new Exception("Usuario no encontrado");
+
+            // Verificar que el usuario no ya sea productor
+            var productorExistente = await db.Productores.Find(p => p.IdUsuario == usuarioId).FirstOrDefaultAsync();
+            if (productorExistente != null)
+                throw new Exception("El usuario ya es un productor");
+
+            // Crear nuevo productor
+            var nuevoProductor = new Productor
+            {
+                IdUsuario = usuarioId,
+                NombreUsuario = nombreUsuario,
+                Direccion = direccion,
+                Nit = nit,
+                Telefono = telefono
+            };
+
+            await db.Productores.InsertOneAsync(nuevoProductor);
+            return nuevoProductor;
+        }
+
+        [Authorize(Roles = new[] { "admin" })]
         public async Task<Usuario> EditarUsuarioAdmin(
             [Service] MongoDbContext db,
             string usuarioId,
