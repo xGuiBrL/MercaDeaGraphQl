@@ -1283,7 +1283,7 @@ namespace MercaDeaGraphQl.GraphQL
             // Eliminar el rol "productor" del usuario
             if (!string.IsNullOrWhiteSpace(usuarioId))
             {
-                var updateRoles = Builders<Usuario>.Update.PullFilter(u => u.Roles, r => r == "productor");
+                var updateRoles = Builders<Usuario>.Update.Pull("Roles", "productor");
                 await db.Usuarios.UpdateOneAsync(u => u.Id == usuarioId, updateRoles);
             }
 

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MercaDeaGraphQl")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1890deca013268c00b62627eb178c5b60ad3be13")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+16974bb6562599f514a171a80c7e771c813d9e65")]
 [assembly: System.Reflection.AssemblyProductAttribute("MercaDeaGraphQl")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MercaDeaGraphQl")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
