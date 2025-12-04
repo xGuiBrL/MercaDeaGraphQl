@@ -1250,8 +1250,44 @@ namespace MercaDeaGraphQl.GraphQL
         [Authorize(Roles = new[] { "admin" })]
         public async Task<bool> EliminarProductorAdmin(
             [Service] MongoDbContext db,
+            [Service] IWebHostEnvironment env,
             string productorId)
         {
+            // Obtener el productor antes de eliminarlo
+            var productor = await db.Productores
+                .Find(p => p.Id == productorId)
+                .FirstOrDefaultAsync();
+
+            if (productor == null)
+                throw new Exception("Productor no encontrado.");
+
+            var usuarioId = productor.IdUsuario;
+
+            // Obtener todos los productos relacionados para eliminar sus imágenes
+            var productos = await db.Productos
+                .Find(p => p.ProductorId == productorId)
+                .ToListAsync();
+
+            // Eliminar las imágenes de todos los productos relacionados
+            foreach (var producto in productos)
+            {
+                if (producto.Imagenes != null && producto.Imagenes.Count > 0)
+                {
+                    EliminarArchivosImagen(producto.Imagenes.ToList(), env);
+                }
+            }
+
+            // Eliminar todos los productos relacionados al productor
+            await db.Productos.DeleteManyAsync(p => p.ProductorId == productorId);
+
+            // Eliminar el rol "productor" del usuario
+            if (!string.IsNullOrWhiteSpace(usuarioId))
+            {
+                var updateRoles = Builders<Usuario>.Update.PullFilter(u => u.Roles, r => r == "productor");
+                await db.Usuarios.UpdateOneAsync(u => u.Id == usuarioId, updateRoles);
+            }
+
+            // Finalmente, eliminar el productor
             var result = await db.Productores.DeleteOneAsync(p => p.Id == productorId);
             return result.DeletedCount == 1;
         }
