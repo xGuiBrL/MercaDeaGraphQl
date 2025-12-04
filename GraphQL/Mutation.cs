@@ -24,6 +24,7 @@ namespace MercaDeaGraphQl.GraphQL
         private static readonly EmailAddressAttribute EmailValidator = new();
         private static readonly Regex DigitsOnlyRegex = new("^[0-9]+$", RegexOptions.Compiled);
 
+        [AllowAnonymous]
         public async Task<string> Login(
             [Service] MongoDbContext db,
             [Service] JwtService jwt,
@@ -648,6 +649,7 @@ namespace MercaDeaGraphQl.GraphQL
            
             };
         }
+        [AllowAnonymous]
         public async Task<Usuario> CrearUsuario(
                             [Service] MongoDbContext db,
                             CrearUsuarioInput input)
