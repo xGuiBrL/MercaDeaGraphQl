@@ -7,6 +7,6 @@
         public string Correo { get; set; }
         public string Password { get; set; }
         public string telefono { get; set; }
-        public List<string> Roles { get; set; }
+        public List<string>? Roles { get; set; }
     }
 }
